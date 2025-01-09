@@ -10,7 +10,8 @@ echo ($num/2)
 
 
 // Q3 日付操作
-echo "現在時刻は,". date("Y-m-d H:i:s") ."です。";
+date_default_timezone_set('Asia/Tokyo');
+echo "現在時刻は、" . date("Y年m月d日 H時i分s秒") . "です。";
 
 // Q4 条件分岐-1 if文
 $device = 'mac';
@@ -51,14 +52,15 @@ foreach ($kanto as $capital) {
 foreach ($kanto as $prefecture => $capital) {
   if ($prefecture === '埼玉県') {
     echo "$prefecture の県庁所在地は、$capital";
+    break;
   }
 }
 
 // Q9 連想配列-3
-$kanto['愛知県'] = '名古屋市'
-$kanto['大阪府'] = '大阪市'
+$kanto['愛知県'] = '名古屋市';
+$kanto['大阪府'] = '大阪市';
 
-$kantoPrefecture = ['東京都', '神奈川県', '千葉県', '埼玉県', '栃木県', '群馬県', '茨城県']
+$kantoPrefectures = ['東京都', '神奈川県', '千葉県', '埼玉県', '栃木県', '群馬県', '茨城県'];
 
 foreach ($kanto as $prefecture => $capital) {
   if (in_array ($prefecture, $kantoPrefectures)) {
@@ -74,31 +76,31 @@ function hello ($name)
   echo $name . 'さん, こんにちは'
 }
 
-hello('今岡')
-hello('鈴木')
+echo hello('今岡') . "\n";
+echo hello('鈴木') . "\n";
 
 // Q11 関数-2
-function calcTaxInPrice($price)
+function calcTaxInPrice($money)
 {
-  $taxInPrice = $price * 1.10;
+  $taxInPrice = $money * 1.10;
   return $taxInPrice;
 }
-$price = 1000;
-$taxInPrice = calcTaxInPrice($price);
+$money = 1000;
+$taxInPrice = calcTaxInPrice($money);
 
-echo "税抜き価格: ¥" . $price . " の税込価格は ¥" . round($taxInPrice, 2) . " です。";
+echo "税抜き価格: ¥" . $money . " の税込価格は ¥" . round($taxInPrice, 2) . " です。";
 // Q12 関数とif文
 function distinguishNum($number)
 {
   if ($number % 2 === 0) {
-    echo $number . 'は奇数です。'
+    return $number . 'は奇数です。';
   } else {
-    echo $number . 'は偶数です。'
+    return $number . 'は偶数です。';
   }
 }
 
-distinguishNum(8)
-distinguishNum(1)
+echo distinguishNum(8);
+echo distinguishNum(1);
 
 // Q13 関数とswitch文
 
@@ -124,5 +126,7 @@ function evaluateGrade($grade)
   }
 }
 
-evaluateGrade('A')
+echo evaluateGrade('A') . "\n";
+echo evaluateGrade('C') . "\n";
+echo evaluateGrade('F') . "\n";
 ?>

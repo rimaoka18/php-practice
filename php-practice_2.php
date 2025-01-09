@@ -1,13 +1,13 @@
 <?php
 // Q1 tic-tac問題
 for ($i = 1; $i < 100; $i++) {
-  if ($i % 4 == 0 && $i % 5 == 0) {
+  if ($i % 4 === 0 && $i % 5 === 0) {
     echo 'tic-tac' . "\n";
   }
-  elseif ($i % 4 == 0) {
+  elseif ($i % 4 === 0) {
     echo 'tic' . "\n";
   }
-  elseif ($i % 5 == 0) {
+  elseif ($i % 5 === 0) {
     echo 'tac' . "\n";
   }
   else {
@@ -50,6 +50,8 @@ foreach ($personalInfos as $index => &$info) {
   $info['age'] = $ageList[$index];
 }
 
+unset($info);
+
 var_dump($personalInfos);
 // Q3 オブジェクト-1
 class Student
@@ -84,4 +86,8 @@ $date = new DateTime();
 $date->modify('-1 month');
 echo $date->format('Y-m-d');
 
+$today = new DateTime();
+$specificDate = new DateTime('1992-04-25');
+$interval = $today->diff($specificDate);
+echo "あの日から " . $interval->days . " 日経過しました。";
 ?>
