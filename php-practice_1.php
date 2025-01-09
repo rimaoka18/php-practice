@@ -57,19 +57,27 @@ foreach ($kanto as $prefecture => $capital) {
 }
 
 // Q9 連想配列-3
-$kanto['愛知県'] = '名古屋市';
-$kanto['大阪府'] = '大阪市';
+$kanto = [
+  '東京都' => '新宿区',
+  '神奈川県' => '横浜市',
+  '千葉県' => '千葉市',
+  '埼玉県' => 'さいたま市',
+  '栃木県' => '宇都宮市',
+  '群馬県' => '前橋市',
+  '茨城県' => '水戸市'
+];
 
-$kantoPrefectures = ['東京都', '神奈川県', '千葉県', '埼玉県', '栃木県', '群馬県', '茨城県'];
+$prefectures = [
+  '東京都', '神奈川県', '千葉県', '埼玉県', '栃木県', '群馬県', '茨城県', '愛知県', '大阪府'
+];
 
-foreach ($kanto as $prefecture => $capital) {
-  if (in_array ($prefecture, $kantoPrefectures)) {
-    echo $prefecture . 'の県庁所在地は、' . $capital . 'です. \n';
+foreach ($prefectures as $prefecture) {
+  if (array_key_exists($prefecture, $kanto)) {
+      echo $prefecture . 'の県庁所在地は、' . $kanto[$prefecture] . 'です。' . "\n";
   } else {
-    echo $prefecture . 'は関東地方ではありません.';
+      echo $prefecture . 'は関東地方ではありません。' . "\n";
   }
 }
-
 // Q10 関数-1
 function hello ($name)
 {
