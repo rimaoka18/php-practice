@@ -1,14 +1,14 @@
 <?php
 // Q1 変数と文字列
 $name = '今岡';
-echo '私の名前は'.$name . 'です。'
+echo '私の名前は'.$name . 'です。';
 
 // Q2 四則演算
 $num = 5 * 4;
 echo "$num";
-echo ($num/2)
+echo ($num/2);
 
-
+9
 // Q3 日付操作
 date_default_timezone_set('Asia/Tokyo');
 echo "現在時刻は、" . date("Y年m月d日 H時i分s秒") . "です。";
@@ -81,16 +81,16 @@ foreach ($prefectures as $prefecture) {
 // Q10 関数-1
 function hello ($name)
 {
-  echo $name . 'さん, こんにちは'
+  return $name . 'さん, こんにちは';
 }
 
 echo hello('今岡') . "\n";
 echo hello('鈴木') . "\n";
 
 // Q11 関数-2
-function calcTaxInPrice($money)
+function calcTaxInPrice($price)
 {
-  $taxInPrice = $money * 1.10;
+  $taxInPrice = $price * 1.10;
   return $taxInPrice;
 }
 $money = 1000;
@@ -117,19 +117,19 @@ function evaluateGrade($grade)
   switch ($grade) {
     case 'A':
     case 'B':
-      echo '合格です。';
+      return '合格です。';
       break;
 
     case 'C':
-      echo '合格ですが追加課題があります。';
+      return '合格ですが追加課題があります。';
       break;
 
     case 'D':
-      echo '不合格です。';
+      return '不合格です。';
       break;
 
     default:
-      echo '判定不明です。講師に問い合わせてください。';
+      return '判定不明です。講師に問い合わせてください。';
       break;
   }
 }
